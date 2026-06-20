@@ -1,0 +1,24 @@
+# Wokwi Simulation Configuration
+# AIoT Wearable Patient Remote Monitoring System
+
+[wokwi]
+version = 1
+
+# Path to PlatformIO build output (build firmware first: pio run -d ../firmware)
+firmware = "../firmware/.pio/build/nodemcu/firmware.bin"
+elf = "../firmware/.pio/build/nodemcu/firmware.elf"
+
+# Diagram file (same directory)
+# Open this folder in Wokwi: https://wokwi.com
+
+# Serial monitor
+serialMonitor = true
+
+# WiFi simulation (Wokwi-GUEST network)
+[[net.forward]]
+from = "localhost:8180"
+to = "localhost:5000"
+
+# Environment variables passed to firmware build
+[env]
+WOKWI_SIM = "1"

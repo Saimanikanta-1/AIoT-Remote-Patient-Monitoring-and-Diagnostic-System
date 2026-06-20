@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "author": "AIoT Patient Monitoring System",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp8266nodemcu",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": { "env": "WOKWI_SIM=1" }
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -144.2,
+      "left": 249.8,
+      "attrs": {
+        "temperature": "36.6",
+        "humidity": "45"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 192,
+      "left": -86.6,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 115.2,
+      "left": -86.6,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 192,
+      "left": 86.6,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-text",
+      "id": "label_max",
+      "top": -96,
+      "left": 460,
+      "attrs": {
+        "text": "MAX30102\n(I2C @ D1/D2)\nSimulated in firmware",
+        "color": "blue"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "label_title",
+      "top": -220,
+      "left": 80,
+      "attrs": {
+        "text": "AIoT Wearable Patient Monitoring - Wokwi Simulation",
+        "color": "green"
+      }
+    }
+  ],
+  "connections": [
+    [ "esp:3V3", "dht1:VCC", "red", [ "h0" ] ],
+    [ "esp:GND.1", "dht1:GND", "black", [ "h0" ] ],
+    [ "esp:D4", "dht1:SDA", "green", [ "h0" ] ],
+
+    [ "esp:D5", "r1:1", "orange", [ "h0" ] ],
+    [ "r1:2", "led1:A", "orange", [ "v0" ] ],
+    [ "led1:C", "esp:GND.2", "black", [ "v0", "h-20" ] ],
+
+    [ "esp:D6", "bz1:1", "yellow", [ "h0" ] ],
+    [ "bz1:2", "esp:GND.2", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patient Remote Monitoring Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">
+        <span class="logo-icon">&#9829;</span>
+        <div>
+          <h1>Patient Remote Monitoring</h1>
+          <p class="subtitle">AIoT Wearable Health Diagnostic System</p>
+        </div>
+      </div>
+      <div class="header-status">
+        <span id="connectionStatus" class="badge badge-offline">Offline</span>
+        <span id="lastUpdate" class="last-update">Waiting for data...</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Risk & Alert Banner -->
+    <section class="alert-banner" id="alertBanner">
+      <div class="alert-icon" id="alertIcon">&#9888;</div>
+      <div class="alert-text">
+        <h2 id="riskStatus">Normal</h2>
+        <p id="alertStatus">All vitals within normal range</p>
+      </div>
+    </section>
+
+    <!-- Live Vitals Cards -->
+    <section class="vitals-grid">
+      <div class="vital-card temp">
+        <div class="vital-icon">&#127777;</div>
+        <div class="vital-info">
+          <span class="vital-label">Temperature</span>
+          <span class="vital-value" id="liveTemp">--</span>
+          <span class="vital-unit">°C</span>
+        </div>
+        <div class="vital-z" id="zTemp">Z: --</div>
+      </div>
+
+      <div class="vital-card humidity">
+        <div class="vital-icon">&#128167;</div>
+        <div class="vital-info">
+          <span class="vital-label">Humidity</span>
+          <span class="vital-value" id="liveHumidity">--</span>
+          <span class="vital-unit">%</span>
+        </div>
+        <div class="vital-z" id="zHumidity">Z: --</div>
+      </div>
+
+      <div class="vital-card hr">
+        <div class="vital-icon">&#128147;</div>
+        <div class="vital-info">
+          <span class="vital-label">Heart Rate</span>
+          <span class="vital-value" id="liveHR">--</span>
+          <span class="vital-unit">bpm</span>
+        </div>
+        <div class="vital-z" id="zHR">Z: --</div>
+      </div>
+
+      <div class="vital-card spo2">
+        <div class="vital-icon">&#129656;</div>
+        <div class="vital-info">
+          <span class="vital-label">SpO2</span>
+          <span class="vital-value" id="liveSpO2">--</span>
+          <span class="vital-unit">%</span>
+        </div>
+        <div class="vital-z" id="zSpO2">Z: --</div>
+      </div>
+    </section>
+
+    <!-- Charts -->
+    <section class="charts-grid">
+      <div class="chart-card">
+        <h3>Temperature & Humidity</h3>
+        <canvas id="tempHumChart"></canvas>
+      </div>
+      <div class="chart-card">
+        <h3>Heart Rate & SpO2</h3>
+        <canvas id="vitalsChart"></canvas>
+      </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-label">Total Readings</span>
+        <span class="stat-value" id="totalReadings">0</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Avg Temperature</span>
+        <span class="stat-value" id="avgTemp">--</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Avg Heart Rate</span>
+        <span class="stat-value" id="avgHR">--</span>
+      </div>
+      <div class="stat-card warning-stat">
+        <span class="stat-label">Warnings</span>
+        <span class="stat-value" id="warningCount">0</span>
+      </div>
+      <div class="stat-card critical-stat">
+        <span class="stat-label">Critical Events</span>
+        <span class="stat-value" id="criticalCount">0</span>
+      </div>
+    </section>
+
+    <!-- Recent Readings Table -->
+    <section class="table-section">
+      <h3>Recent Readings</h3>
+      <div class="table-wrapper">
+        <table id="readingsTable">
+          <thead>
+            <tr>
+              <th>Timestamp</th>
+              <th>Temp (°C)</th>
+              <th>Humidity (%)</th>
+              <th>HR (bpm)</th>
+              <th>SpO2 (%)</th>
+              <th>Risk</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="readingsBody">
+            <tr><td colspan="7" class="empty-row">No data received yet</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>AIoT-Based Wearable Patient Remote Monitoring &amp; Diagnostic System &mdash; Edge AI on ESP8266</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
