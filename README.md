@@ -1,4 +1,4 @@
-# AIoT-Based Wearable Patient Remote Monitoring and Diagnostic System
+# AIoT-Based Remote Patient Monitoring and Diagnostic System with Edge AI and Predictive Analytics
 
 [![PlatformIO](https://img.shields.io/badge/PlatformIO-ESP8266-orange)](https://platformio.org/)
 [![Flask](https://img.shields.io/badge/Flask-3.0-blue)](https://flask.palletsprojects.com/)
@@ -19,6 +19,17 @@ A complete **AIoT healthcare monitoring system** featuring an ESP8266 wearable w
 - **REST API** — Flask POST `/api/patient-data`
 - **Dashboard** — Real-time charts with Chart.js
 - **Wokwi Simulation** — Full hardware simulation without physical components
+
+---
+
+## Key Innovations
+
+- Edge AI anomaly detection directly on ESP8266
+- Predictive risk assessment using historical patient data
+- Real-time remote healthcare monitoring
+- MQTT and REST dual communication architecture
+- Wearable healthcare device simulation using Wokwi
+- Automated patient status classification (Normal, Warning, Critical)
 
 ---
 
@@ -161,9 +172,33 @@ See [docs/architecture.md](docs/architecture.md) for complete wiring table and d
 
 ---
 
+## Screenshots
+
+### Dashboard
+![Dashboard](screenshots/dashboard.png)
+
+### Wokwi Simulation
+![Wokwi](screenshots/wokwi.png)
+
+### System Architecture
+![Architecture](screenshots/architecture.png)
+
+---
+
 ## Technologies
 
 IoT · AIoT · Edge Computing · Edge AI · MQTT · REST API · WiFi · Embedded C++ · PlatformIO · VS Code · ESP8266 · DHT11 · MAX30102 · SQLite · Flask · HTML · CSS · JavaScript · Chart.js · Wokwi · Predictive Analytics · Anomaly Detection · Real-Time Monitoring · Remote Healthcare
+
+---
+
+## Future Enhancements
+
+- Integration with cloud platforms (AWS IoT / Azure IoT)
+- Machine learning-based disease prediction
+- Mobile application for remote patient access
+- Doctor notification and emergency alert system
+- Wearable battery optimization
+- Multi-patient monitoring support
 
 ---
 
@@ -181,6 +216,10 @@ This project is provided for educational and research purposes.
 
 ---
 
-## Author
+## Author. 
 
-AIoT Wearable Patient Monitoring System — Senior IoT / Edge AI Engineering Project
+Sai Manikanta
+
+B.Tech Data Science | Mohan Babu University
+
+Academic Project: AIoT-Based Remote Patient Monitoring and Diagnostic System with Edge AI and Predictive AnalyticsAIoT Wearable Patient Monitoring System — Senior IoT / Edge AI Engineering Project
